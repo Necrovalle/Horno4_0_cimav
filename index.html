@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" type="image/x-icon" href="src/main_icon.ico" />
+	<link rel="stylesheet" type="text/css" href="src/style.css" media="screen" />
+	<title>Control de equipos CIMAV</title>
+</head>
+<body>
+<div class="home">
+	<div class = "banda-superior">
+		<a>Seguimiento de equipo vía web</a>
+	</div>
+	<div class="vertical-menu">
+		<a href="#" id="acerca_btn" >Acerca de...</a>
+		<a href="#" id="bitacora_btn">Bitacora</a>
+		<a href="#" id="altas_btn">Altas</a>
+		<a href="#" id="mant_btn">Mantenimiento</a>
+		<a href="#" id="admin_btn">Administración</a>
+	</div>
+	<div class = "filler-menu"> 
+	</div>
+	<div class = "botom-menu">
+		<a href="https://cimav.edu.mx/">CIMAV</a>
+	</div>	
+	<div class = "label-time" id = "label1">
+		0:00
+	</div>
+	
+	<div class = "cont-barra">
+		<progress value = 0 max = 100 id = "barra" class = "barraStyle">
+		</progress>
+	</div>
+	
+	<div class = "label-inicio" id = "label2">
+		0:00
+	</div>
+	
+	<div class = "label-tfinal" id = "label3">
+		0:00
+	</div>
+	
+	<div class = "label-porcentaje" id = "label4">
+		0 %
+	</div>
+	
+	<div class = "rangos">
+	<ul class = "list-rangos">
+		<li>Nombre del equipo:</li>
+		<li>Estado del equipo:</li>
+		<li>Usuario actual:</li>
+		<li>Temperatura de set point:</li>
+		<li>Correo de notificación:</li>
+		<li>Hora de notificación:</li>
+	</ul>
+	</div>
+
+	<div class = "datos">
+	<ul class = "list-datos">
+		<li id = "D1">--</li>
+		<li id = "D2">--</li>
+		<li id = "D3">--</li>
+		<li id = "D4">--</li>
+		<li id = "D5">--</li>
+		<li id = "D6">--</li>
+	</ul>
+	</div>
+	
+	<div class = "banda-inferior">
+		<a>MAOA</a>
+	</div>
+	
+	<!FIN DE LA PAGINA INICIAL>
+</div>
+	
+	<!POPUP DE ACERCA DE>
+	<div class="overlay1" id ="overlay-acerca">
+		<div class="pop1" id = "pop_acerca">
+			<h3 class ="Titulo1">Bienvenido</h3>
+			<h4 class="msg1">
+				Este es un sistema de monitoreo de uso de equipo <br>
+				para laboratorio de .......... <br>
+				Con envio automatico de fin de operación<br>
+			</h4>
+			<input type="submit" class="btn1" id = "btn1" value="Aceptar"></input>
+		</div>
+	</div>
+	
+	<!POPUP DE BITACORA>
+	<div class="overlay2" id="overlay-bitacora">
+		<div class="pop2" id="pop_bitacora">
+			<h3 class="Titulo2">Bitacora de uso</h3>
+			<table id="tabla-usuarios">
+				<tr>
+					<th>#ID</th>
+					<th>Usuario</th>
+					<th>Fecha</th>
+					<th>Hora de inicio</th>
+					<th>Hora de fin</th>
+					<th>Equipo</th>
+					<th>Opciones</th>
+				</tr>
+				<tr>
+					<td id="bt_a1">--</td>
+					<td id="bt_a2">--</td>
+					<td id="bt_a3">--</td>
+					<td id="bt_a4">--</td>
+					<td id="bt_a5">--</td>
+					<td id="bt_a6">--</td>
+					<td>
+						<a id="edit1">&#9998</a>
+						<a id="dele1">&#10008</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="bt_b1">--</td>
+					<td id="bt_b2">--</td>
+					<td id="bt_b3">--</td>
+					<td id="bt_b4">--</td>
+					<td id="bt_b5">--</td>
+					<td id="bt_b6">--</td>
+					<td>
+						<a id="edit2">&#9998</a>
+						<a id="dele2">&#10008</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="bt_c1">--</td>
+					<td id="bt_c2">--</td>
+					<td id="bt_c3">--</td>
+					<td id="bt_c4">--</td>
+					<td id="bt_c5">--</td>
+					<td id="bt_c6">--</td>
+					<td>
+						<a id="edit3">&#9998</a>
+						<a id="dele3">&#10008</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="bt_d1">--</td>
+					<td id="bt_d2">--</td>
+					<td id="bt_d3">--</td>
+					<td id="bt_d4">--</td>
+					<td id="bt_d5">--</td>
+					<td id="bt_d6">--</td>
+					<td>
+						<a id="edit4">&#9998</a>
+						<a id="dele4">&#10008</a>
+					</td>
+				</tr>
+			</table><br>
+			<input type="submit" class="btn1" id = "btn2" value="Aceptar"></input>
+		</div>
+	</div>
+	
+	<!POPUP ALTAS>
+	<div class="overlay3" id="overlay-altas">
+		<div class="pop3" id="pop_altas">
+			<h3 class="Titulo2">Altas de uso</h3>
+			<div class="conten-pop3">
+			<h4 class="Titulo3">Usuario:<input id="usuarioAlta" type="email" class="email-box"></input></h4>
+			<h4 class="Titulo3">Equipo:
+				<select id="equipoAlta" name="Equipos" class="selec-equipo">
+					<option value="Horno No1">Horno No1</option>
+					<option value="Horno No2">Horno No2</option>
+					<option value="Horno No3">Horno No3</option>
+				</select>
+			</h4>
+			<h4 class="Titulo3">Hora de inicio:
+				<select id="H_IAlta" name="Equipos" class="H-inicio">
+					<option value="8:00" >8:00 </option>
+					<option value="9:00" >9:00 </option>
+					<option value="10:00">10:00</option>
+					<option value="11:00">11:00</option>
+					<option value="12:00">12:00</option>
+					<option value="13:00">13:00</option>
+					<option value="14:00">14:00</option>
+					<option value="15:00">15:00</option>
+					<option value="16:00">16:00</option>
+					<option value="17:00">17:00</option>
+					<option value="18:00">18:00</option>
+				</select>
+			</h4>
+			<h4 class="Titulo3">Hora de final:
+				<select id="H_FAlta" name="Equipos" class="H-fin">
+					<option value="9:00" >9:00 </option>
+					<option value="10:00">10:00</option>
+					<option value="11:00">11:00</option>
+					<option value="12:00">12:00</option>
+					<option value="13:00">13:00</option>
+					<option value="14:00">14:00</option>
+					<option value="15:00">15:00</option>
+					<option value="16:00">16:00</option>
+					<option value="17:00">17:00</option>
+					<option value="18:00">18:00</option>
+					<option value="19:00">19:00</option>
+				</select>
+			</h4>
+			<h4 class="Titulo3">Fecha:
+				<input type="date" id="al_fc" name="fecha-alta">
+			</h4>
+			</div>
+			<input type="submit" class="btn1" id = "btn3" value="Aceptar"></input>
+		</div>
+	</div>
+	
+	<!POPUP MANTENIMIENTO>
+	<div class="overlay4" id="overlay-mantenimiento">
+		<div class="pop4" id="pop_mantenimiento">
+			<h3 class="Titulo2">Próximo mantenimiento programado</h3>
+			<table id="tabla-usuarios">
+				<tr>
+					<th>#</th>
+					<th>Equipo</th>
+					<th>Descripción</th>
+					<th>Fecha</th>
+				</tr>
+				<tr>
+					<td id="mt_a1">--</td>
+					<td id="mt_a2">--</td>
+					<td id="mt_a3">--</td>
+					<td id="mt_a4">--</td>
+				</tr>
+			</table>
+			<h3 class="Titulo2">Programación de siguiente mantenimiento</h3>
+			<div class="conten-pop4">
+				<h4 class="Titulo3">Equipo:
+					<select name="Equipos" class="selec-equipo-mant" id="mt_eq">
+						<option value="Horno 1">Horno 1</option>
+						<option value="Horno 2">Horno 2</option>
+						<option value="Horno 3">Horno 3</option>
+					</select>
+				</h4>
+				<h4 class="Titulo3">
+					Descripción:
+					<input type="text" class="desc-mant" id="mt_ds">
+					</input>
+				</h4>
+				<h4 class="Titulo3">Fecha:
+					<input type="date" id="mt_fc" name="fecha-alta">
+				</h4>
+				<h4 class="Titulo3">
+					Contraseña:
+					<input type="password" class="pasw-mant" id="mt_ps">
+					</input>
+				</h4>
+			</div>
+			<input type="submit" class="btn1" id = "btn4" value="Aceptar"></input>
+		</div>
+	</div>
+	
+	<!POPUP ADMINISTRACIÓN>
+	<div class="overlay5" id="overlay-admin">
+		<div class="pop5" id="pop_admin">
+			<h3 class="Titulo2">Adminitrador de sistema</h3>
+			<div class="conten-pop5">
+				<h4 class="Titulo3">
+					Adminitrador:
+					<input type="text" class="desc-mant" id="ad_us">
+						<input type="submit" class="btn2" id = "btn6" value="Cambiar"></input>
+					</input>
+				</h4>
+				<h4 class="Titulo3">
+					Contraseña:
+					<input type="password" class="pasw-mant" id="ad_ps">
+						<input type="submit" class="btn2" id = "btn7" value="Cambiar"></input>
+					</input>
+				</h4>
+			</div>
+			<input type="submit" class="btn1" id = "btn5" value="Aceptar"></input>
+		</div>
+	</div>
+
+	<!POPUP MODIFICACION DE BITACORA>
+	<div class="overlay6" id="overlay-modif">
+		<div class="pop6" id="pop_modif">
+			<h3 class="Titulo2">Modificación de registro</h3>
+			<div class="conten-pop6">
+			<h4 class="Titulo3">#ID<input type="text" readonly class="modID" id="mod_ID"></input></h4>
+			<h4 class="Titulo3">Usuario<input type="text" class="modUS" id="mod_US"></input></h4>
+			<h4 class="Titulo3">Fecha<input type="text" class="modFC" id="mod_FC"></input></h4>
+			<h4 class="Titulo3">Hora de inicio<input type="text" class="modIN" id="mod_IN"></input></h4>
+			<h4 class="Titulo3">Hora de fin<input type="text" class="modFN" id="mod_FN"></input></h4>
+			<h4 class="Titulo3">Equipo<input type="text" class="modEQ" id="mod_EQ"></input></h4>
+			</div>
+			<input type="submit" class="btn1" id = "btn8" value="Aceptar"></input> 
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="src/socket.io.js"></script>
+	<script type="text/javascript" src="src/acn.js"></script>
+	
+</body>
+</html>
+
